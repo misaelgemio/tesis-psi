@@ -1,0 +1,31 @@
+{
+  "_descripcion": "Estructura del PSI-4-SF (Abidin, 2012). INSTRUMENTO PROPIETARIO (PAR Inc.). NO se incluye el texto literal de los ítems. La investigadora debe pegar el texto de cada ítem desde su copia licenciada en el campo 'texto'. Marque los ítems de puntuación inversa en 'inversos' (lista de números de ítem).",
+  "escala": {
+    "min": 1,
+    "max": 5,
+    "etiquetas": {
+      "1": "Totalmente en desacuerdo",
+      "2": "En desacuerdo",
+      "3": "No estoy seguro",
+      "4": "De acuerdo",
+      "5": "Totalmente de acuerdo"
+    }
+  },
+  "subescalas": [
+    { "id": "PD", "nombre": "Malestar parental", "items": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12] },
+    { "id": "P_CDI", "nombre": "Interacción disfuncional cuidador–hijo", "items": [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24] },
+    { "id": "DC", "nombre": "Hijo difícil", "items": [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36] }
+  ],
+  "inversos": [],
+  "items": [
+    { "n": 1, "texto": "" }, { "n": 2, "texto": "" }, { "n": 3, "texto": "" }, { "n": 4, "texto": "" },
+    { "n": 5, "texto": "" }, { "n": 6, "texto": "" }, { "n": 7, "texto": "" }, { "n": 8, "texto": "" },
+    { "n": 9, "texto": "" }, { "n": 10, "texto": "" }, { "n": 11, "texto": "" }, { "n": 12, "texto": "" },
+    { "n": 13, "texto": "" }, { "n": 14, "texto": "" }, { "n": 15, "texto": "" }, { "n": 16, "texto": "" },
+    { "n": 17, "texto": "" }, { "n": 18, "texto": "" }, { "n": 19, "texto": "" }, { "n": 20, "texto": "" },
+    { "n": 21, "texto": "" }, { "n": 22, "texto": "" }, { "n": 23, "texto": "" }, { "n": 24, "texto": "" },
+    { "n": 25, "texto": "" }, { "n": 26, "texto": "" }, { "n": 27, "texto": "" }, { "n": 28, "texto": "" },
+    { "n": 29, "texto": "" }, { "n": 30, "texto": "" }, { "n": 31, "texto": "" }, { "n": 32, "texto": "" },
+    { "n": 33, "texto": "" }, { "n": 34, "texto": "" }, { "n": 35, "texto": "" }, { "n": 36, "texto": "" }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "_descripcion": "Mapeo COPE-28 según Anexo A.2 (versión Morán et al., 2010). Cada subescala = suma de sus 2 ítems (rango 0–6). El campo 'estilo' es CONFIGURABLE: puede ser 'adaptativo', 'desadaptativo' o 'evitativo'. Por decisión del estudio, autodistracción y desahogo se clasifican como 'evitativo'.",
+  "estilos": ["adaptativo", "desadaptativo", "evitativo"],
+  "subescalas": [
+    { "id": "afrontamiento_activo", "nombre": "Afrontamiento activo", "items": [2, 10], "estilo": "adaptativo" },
+    { "id": "planificacion", "nombre": "Planificación", "items": [6, 26], "estilo": "adaptativo" },
+    { "id": "apoyo_emocional", "nombre": "Apoyo emocional", "items": [9, 17], "estilo": "adaptativo" },
+    { "id": "apoyo_instrumental", "nombre": "Apoyo social / instrumental", "items": [1, 28], "estilo": "adaptativo" },
+    { "id": "reevaluacion_positiva", "nombre": "Reevaluación positiva", "items": [14, 18], "estilo": "adaptativo" },
+    { "id": "aceptacion", "nombre": "Aceptación", "items": [3, 21], "estilo": "adaptativo" },
+    { "id": "religion", "nombre": "Religión", "items": [16, 20], "estilo": "adaptativo" },
+    { "id": "humor", "nombre": "Humor", "items": [7, 19], "estilo": "adaptativo" },
+    { "id": "autodistraccion", "nombre": "Autodistracción", "items": [4, 22], "estilo": "evitativo" },
+    { "id": "negacion", "nombre": "Negación", "items": [5, 13], "estilo": "desadaptativo" },
+    { "id": "desahogo", "nombre": "Desahogo", "items": [12, 23], "estilo": "evitativo" },
+    { "id": "desconexion_conductual", "nombre": "Desconexión conductual", "items": [11, 25], "estilo": "desadaptativo" },
+    { "id": "autoinculpacion", "nombre": "Autoinculpación", "items": [8, 27], "estilo": "desadaptativo" },
+    { "id": "consumo_sustancias", "nombre": "Consumo de sustancias", "items": [15, 24], "estilo": "desadaptativo" }
+  ]
+}

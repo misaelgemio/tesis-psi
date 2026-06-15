@@ -1,0 +1,14 @@
+{
+  "_descripcion": "Texto de consentimiento informado. EDITABLE. Esta es una PLANTILLA base; reemplácela por el texto aprobado por su comité/tutor antes de aplicar el estudio.",
+  "titulo": "Consentimiento informado",
+  "version": "borrador-1",
+  "parrafos": [
+    "Usted está siendo invitado(a) a participar de manera voluntaria en el estudio «Estrés parental y estrategias de afrontamiento en cuidadores primarios de adolescentes con Trastorno del Espectro Autista (TEA) de la Red Boliviana de Padres de Personas con Autismo (REDBOPEA)», desarrollado como perfil de tesis de la Licenciatura en Psicología (UDABOL, La Paz, Bolivia, 2026).",
+    "El estudio busca describir y analizar la relación entre el estrés parental y las estrategias de afrontamiento en cuidadores primarios. Si acepta, se le pedirá responder una ficha sociodemográfica y dos cuestionarios (PSI-4-SF y COPE-28). El tiempo estimado es de 20 a 30 minutos.",
+    "Su participación es anónima: no se registran nombres ni datos que permitan identificarle directamente; se le asigna únicamente un código. Los datos se tratan de forma confidencial y se analizan de manera agregada, con fines exclusivamente académicos.",
+    "Puede retirarse en cualquier momento, sin consecuencia alguna, y omitir cualquier pregunta que no desee responder. La participación no implica riesgos ni beneficios económicos.",
+    "Al marcar «Acepto» declara que ha leído y comprendido esta información y que consiente participar de forma libre y voluntaria."
+  ],
+  "avisoPie": "Datos con fines académicos; tratamiento confidencial y agregado.",
+  "textoBotonAceptar": "Acepto participar"
+}

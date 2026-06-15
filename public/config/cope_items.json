@@ -1,0 +1,22 @@
+{
+  "_descripcion": "Estructura del COPE-28 / Brief COPE (Carver, 1997; adaptación española de Morán, Landero y González, 2010). El texto de cada ítem es editable: péguelo desde su fuente en el campo 'texto'. La app no incluye el texto literal por defecto.",
+  "escala": {
+    "min": 0,
+    "max": 3,
+    "etiquetas": {
+      "0": "Nunca",
+      "1": "Algunas veces",
+      "2": "Bastantes veces",
+      "3": "Casi siempre"
+    }
+  },
+  "items": [
+    { "n": 1, "texto": "" }, { "n": 2, "texto": "" }, { "n": 3, "texto": "" }, { "n": 4, "texto": "" },
+    { "n": 5, "texto": "" }, { "n": 6, "texto": "" }, { "n": 7, "texto": "" }, { "n": 8, "texto": "" },
+    { "n": 9, "texto": "" }, { "n": 10, "texto": "" }, { "n": 11, "texto": "" }, { "n": 12, "texto": "" },
+    { "n": 13, "texto": "" }, { "n": 14, "texto": "" }, { "n": 15, "texto": "" }, { "n": 16, "texto": "" },
+    { "n": 17, "texto": "" }, { "n": 18, "texto": "" }, { "n": 19, "texto": "" }, { "n": 20, "texto": "" },
+    { "n": 21, "texto": "" }, { "n": 22, "texto": "" }, { "n": 23, "texto": "" }, { "n": 24, "texto": "" },
+    { "n": 25, "texto": "" }, { "n": 26, "texto": "" }, { "n": 27, "texto": "" }, { "n": 28, "texto": "" }
+  ]
+}
