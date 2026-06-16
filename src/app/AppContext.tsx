@@ -10,6 +10,7 @@ interface Ctx {
   error: string | null;
   modo: Modo;
   setModo: (m: Modo) => void;
+  recargarConfig: () => Promise<void>;
 }
 
 const AppCtx = createContext<Ctx | null>(null);
@@ -20,6 +21,11 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   const [error, setError] = useState<string | null>(null);
   const [modo, setModo] = useState<Modo>("entrevista");
 
+  async function recargarConfig() {
+    const c = await cargarConfig();
+    setConfig(c);
+  }
+
   useEffect(() => {
     cargarConfig()
       .then(setConfig)
@@ -28,7 +34,9 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <AppCtx.Provider value={{ config, cargando, error, modo, setModo }}>{children}</AppCtx.Provider>
+    <AppCtx.Provider value={{ config, cargando, error, modo, setModo, recargarConfig }}>
+      {children}
+    </AppCtx.Provider>
   );
 }
 

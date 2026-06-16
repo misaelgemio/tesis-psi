@@ -8,6 +8,7 @@ import PSI from "../pages/PSI";
 import COPE from "../pages/COPE";
 import Tablero from "../pages/Tablero";
 import Exportar from "../pages/Exportar";
+import Configuracion from "../pages/Configuracion";
 
 function Nav() {
   const { modo, setModo } = useApp();
@@ -30,6 +31,9 @@ function Nav() {
           </NavLink>
           <NavLink to="/exportar" className={activo}>
             Exportar
+          </NavLink>
+          <NavLink to="/configuracion" className={activo}>
+            Configuración
           </NavLink>
         </nav>
         <div className="ml-auto flex items-center gap-2 text-sm">
@@ -80,6 +84,7 @@ function Contenido() {
           <Route path="/cope/:id" element={<COPE />} />
           <Route path="/tablero" element={<Tablero />} />
           <Route path="/exportar" element={<Exportar />} />
+          <Route path="/configuracion" element={<Configuracion />} />
         </Routes>
       </main>
       <footer className="max-w-5xl mx-auto p-4 text-xs text-gray-500 border-t mt-8">

@@ -1,4 +1,6 @@
-// Carga los archivos de configuración editables desde /config.
+// Carga los archivos de configuración editables desde /config,
+// fusionando los ajustes que la investigadora haya guardado en el dispositivo.
+import { db } from "../db/dexie";
 import { CopeConfig, CopeMapping, PsiConfig } from "../domain/types";
 
 export interface ConsentConfig {
@@ -30,5 +32,23 @@ export async function cargarConfig(): Promise<AppConfig> {
     cargarJson<CopeMapping>(`${base}config/cope_mapping.json`),
     cargarJson<ConsentConfig>(`${base}config/consent.json`),
   ]);
+
+  // Sobrescribir con los ajustes guardados por la investigadora (su copia licenciada).
+  const ajustes = await db.ajustes.get("config");
+  if (ajustes) {
+    if (ajustes.psiTextos) {
+      psi.items = psi.items.map((it) => ({ ...it, texto: ajustes.psiTextos![it.n] ?? it.texto }));
+    }
+    if (ajustes.psiInversos) {
+      psi.inversos = ajustes.psiInversos;
+    }
+    if (ajustes.copeTextos) {
+      copeItems.items = copeItems.items.map((it) => ({
+        ...it,
+        texto: ajustes.copeTextos![it.n] ?? it.texto,
+      }));
+    }
+  }
+
   return { psi, copeItems, copeMapping, consent };
 }

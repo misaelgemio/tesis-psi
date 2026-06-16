@@ -41,11 +41,23 @@ export interface RespuestasCOPE {
   actualizado: string;
 }
 
+/**
+ * Ajustes editables por la investigadora (sobrescriben los archivos JSON).
+ * Aquí se cargan los textos de su copia licenciada de los instrumentos.
+ */
+export interface Ajustes {
+  id: "config"; // registro único
+  psiTextos?: Record<number, string>; // n.º de ítem → texto
+  psiInversos?: number[];
+  copeTextos?: Record<number, string>;
+}
+
 export class TesisDB extends Dexie {
   participantes!: Table<Participante, string>;
   fichas!: Table<Ficha, string>;
   psi!: Table<RespuestasPSI, string>;
   cope!: Table<RespuestasCOPE, string>;
+  ajustes!: Table<Ajustes, string>;
 
   constructor() {
     super("tesis-psi");
@@ -54,6 +66,13 @@ export class TesisDB extends Dexie {
       fichas: "participanteId",
       psi: "participanteId",
       cope: "participanteId",
+    });
+    this.version(2).stores({
+      participantes: "id, creado",
+      fichas: "participanteId",
+      psi: "participanteId",
+      cope: "participanteId",
+      ajustes: "id",
     });
   }
 }
