@@ -9,12 +9,12 @@ export default function PSI() {
   const { id } = useParams<{ id: string }>();
   const { config } = useApp();
   const navigate = useNavigate();
-  const registro = useLiveQuery(() => (id ? db.psi.get(id) : undefined), [id]);
+  // Default `null` en la 1.ª render = "aún cargando". Una vez resuelta la consulta,
+  // devuelve el registro o `undefined` (participante sin respuestas todavía).
+  const registro = useLiveQuery(() => (id ? db.psi.get(id) : undefined), [id], null);
 
-  if (!config || !id || registro === undefined) {
-    // registro === undefined: aún cargando (Dexie devuelve undefined mientras resuelve)
-    return <p className="p-4">Cargando…</p>;
-  }
+  if (!config || !id) return null;
+  if (registro === null) return <p className="p-4">Cargando…</p>;
 
   const inicial: Respuestas = registro?.respuestas ?? {};
   const sinTexto = config.psi.items.every((it) => !it.texto);
