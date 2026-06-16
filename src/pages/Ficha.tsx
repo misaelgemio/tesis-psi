@@ -2,6 +2,7 @@ import { useLiveQuery } from "dexie-react-hooks";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { db, Ficha as FichaT } from "../db/dexie";
+import { useApp } from "../app/AppContext";
 
 const vacia = (id: string): FichaT => ({
   participanteId: id,
@@ -11,6 +12,7 @@ const vacia = (id: string): FichaT => ({
 
 export default function Ficha() {
   const { id } = useParams<{ id: string }>();
+  const { config } = useApp();
   const navigate = useNavigate();
   const guardada = useLiveQuery(() => (id ? db.fichas.get(id) : undefined), [id]);
   const [ficha, setFicha] = useState<FichaT | null>(null);
@@ -133,6 +135,25 @@ export default function Ficha() {
           </div>
         </div>
       </fieldset>
+
+      {config && config.incentivo.opciones.length > 0 && (
+        <fieldset className="bg-white border rounded-lg p-6 space-y-3">
+          <legend className="font-bold text-marca px-2">Incentivo</legend>
+          <label className={labelCls}>Incentivo elegido / entregado</label>
+          <select
+            className={inputCls}
+            value={ficha.incentivo ?? ""}
+            onChange={(e) => setFicha((f) => (f ? { ...f, incentivo: e.target.value || undefined } : f))}
+          >
+            <option value="">—</option>
+            {config.incentivo.opciones.map((op) => (
+              <option key={op} value={op}>
+                {op}
+              </option>
+            ))}
+          </select>
+        </fieldset>
+      )}
 
       <div className="flex gap-3">
         <button onClick={guardar} disabled={edadInvalida} className="bg-marca text-white px-5 py-2 rounded hover:bg-marca-claro disabled:opacity-50">

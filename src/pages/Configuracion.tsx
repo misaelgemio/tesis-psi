@@ -10,6 +10,8 @@ export default function Configuracion() {
   const [psiTextos, setPsiTextos] = useState<Record<number, string>>({});
   const [copeTextos, setCopeTextos] = useState<Record<number, string>>({});
   const [psiInversos, setPsiInversos] = useState<number[]>([]);
+  const [incIntro, setIncIntro] = useState("");
+  const [incOpciones, setIncOpciones] = useState<string[]>([]);
   const [msg, setMsg] = useState<string | null>(null);
 
   useEffect(() => {
@@ -21,6 +23,8 @@ export default function Configuracion() {
     setPsiTextos(psi);
     setCopeTextos(cope);
     setPsiInversos(config.psi.inversos ?? []);
+    setIncIntro(config.incentivo.intro ?? "");
+    setIncOpciones(config.incentivo.opciones ?? []);
   }, [config]);
 
   if (!config) return null;
@@ -43,6 +47,7 @@ export default function Configuracion() {
       psiTextos,
       copeTextos,
       psiInversos,
+      incentivo: { intro: incIntro, opciones: incOpciones.map((o) => o.trim()).filter(Boolean) },
     });
     await recargarConfig();
     setMsg("✓ Ítems guardados en este dispositivo.");
@@ -139,6 +144,51 @@ export default function Configuracion() {
               />
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ---------------- Incentivo ---------------- */}
+      <section className="bg-white border rounded-lg p-6 space-y-4">
+        <h2 className="font-bold text-lg text-marca">Incentivo por participación</h2>
+        <p className="text-sm text-gray-600">
+          Agradecimiento que se ofrece a quienes participan. El texto se muestra en el consentimiento; las
+          opciones se usan en la Ficha para registrar el incentivo elegido o entregado. Recuerde mantenerlo
+          proporcionado y no coercitivo (ver <code>docs/sugerencias_incentivos.md</code>).
+        </p>
+
+        <div>
+          <label className="block text-sm font-medium mb-1">Texto del incentivo (aparece en el consentimiento)</label>
+          <textarea
+            className="border rounded w-full p-2"
+            rows={3}
+            value={incIntro}
+            placeholder="Ej.: Como agradecimiento, se sortearán becas de musicoterapia y apoyo en entrenamiento canino…"
+            onChange={(e) => setIncIntro(e.target.value)}
+          />
+        </div>
+
+        <div className="space-y-2">
+          <p className="text-sm font-medium">Opciones de incentivo (para registrar en cada Ficha)</p>
+          {incOpciones.map((op, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <input
+                className="border rounded px-2 py-1 flex-1"
+                value={op}
+                placeholder="Ej.: Beca de musicoterapia (4 sesiones)"
+                onChange={(e) => setIncOpciones((prev) => prev.map((x, j) => (j === i ? e.target.value : x)))}
+              />
+              <button
+                onClick={() => setIncOpciones((prev) => prev.filter((_, j) => j !== i))}
+                className="text-red-600 px-2"
+                aria-label={`Quitar opción ${i + 1}`}
+              >
+                ✕
+              </button>
+            </div>
+          ))}
+          <button onClick={() => setIncOpciones((prev) => [...prev, ""])} className="text-marca underline text-sm">
+            + Agregar opción
+          </button>
         </div>
       </section>
 

@@ -27,6 +27,8 @@ export interface Ficha {
     comorbilidades?: string;
     tiempoDesdeDx?: string;
   };
+  /** Incentivo elegido o entregado a este participante (opción configurada). */
+  incentivo?: string;
 }
 
 export interface RespuestasPSI {
@@ -50,6 +52,8 @@ export interface Ajustes {
   psiTextos?: Record<number, string>; // n.º de ítem → texto
   psiInversos?: number[];
   copeTextos?: Record<number, string>;
+  /** Incentivo por participación: texto para el consentimiento y opciones a registrar. */
+  incentivo?: { intro: string; opciones: string[] };
 }
 
 export class TesisDB extends Dexie {

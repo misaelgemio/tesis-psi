@@ -30,6 +30,11 @@ export default function Consentimiento() {
         {c.parrafos.map((p, i) => (
           <p key={i}>{p}</p>
         ))}
+        {config.incentivo.intro.trim() && (
+          <p className="bg-marca/5 border border-marca/20 rounded p-3">
+            🎁 {config.incentivo.intro}
+          </p>
+        )}
         <p className="text-sm text-gray-500 border-t pt-3 mt-3">{c.avisoPie}</p>
       </div>
 

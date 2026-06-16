@@ -11,11 +11,17 @@ export interface ConsentConfig {
   textoBotonAceptar: string;
 }
 
+export interface IncentivoConfig {
+  intro: string;
+  opciones: string[];
+}
+
 export interface AppConfig {
   psi: PsiConfig;
   copeItems: CopeConfig;
   copeMapping: CopeMapping;
   consent: ConsentConfig;
+  incentivo: IncentivoConfig;
 }
 
 async function cargarJson<T>(ruta: string): Promise<T> {
@@ -33,6 +39,8 @@ export async function cargarConfig(): Promise<AppConfig> {
     cargarJson<ConsentConfig>(`${base}config/consent.json`),
   ]);
 
+  const incentivo: IncentivoConfig = { intro: "", opciones: [] };
+
   // Sobrescribir con los ajustes guardados por la investigadora (su copia licenciada).
   const ajustes = await db.ajustes.get("config");
   if (ajustes) {
@@ -48,7 +56,11 @@ export async function cargarConfig(): Promise<AppConfig> {
         texto: ajustes.copeTextos![it.n] ?? it.texto,
       }));
     }
+    if (ajustes.incentivo) {
+      incentivo.intro = ajustes.incentivo.intro ?? "";
+      incentivo.opciones = ajustes.incentivo.opciones ?? [];
+    }
   }
 
-  return { psi, copeItems, copeMapping, consent };
+  return { psi, copeItems, copeMapping, consent, incentivo };
 }
